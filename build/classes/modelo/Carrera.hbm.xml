@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2015 4:27:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Carrera" table="carrera" schema="public" optimistic-lock="version">
+        <id name="idcarrera" type="int">
+            <column name="idcarrera" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="escuela" class="modelo.Escuela" fetch="select">
+            <column name="esc_id" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="duracion" type="string">
+            <column name="duracion" length="45" not-null="true" />
+        </property>
+        <set name="materias" table="materia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="car_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Materia" />
+        </set>
+        <set name="materias_1" table="materia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="car_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Materia" />
+        </set>
+        <set name="alumnos" table="alumno" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="car_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Alumno" />
+        </set>
+        <set name="alumnos_1" table="alumno" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="car_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Alumno" />
+        </set>
+    </class>
+</hibernate-mapping>

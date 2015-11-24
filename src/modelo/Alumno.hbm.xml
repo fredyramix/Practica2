@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2015 4:27:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Alumno" table="alumno" schema="public" optimistic-lock="version">
+        <id name="matricula" type="int">
+            <column name="matricula" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carrera" class="modelo.Carrera" fetch="select">
+            <column name="car_id" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="paterno" type="string">
+            <column name="paterno" length="45" not-null="true" />
+        </property>
+        <property name="materno" type="string">
+            <column name="materno" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" />
+        </property>
+        <property name="fnacimiento" type="string">
+            <column name="fnacimiento" length="45" not-null="true" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="45" not-null="true" />
+        </property>
+        <set name="respuestas" table="alumno_has_respuesta" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="alumno_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.Respuesta">
+                <column name="respuesta_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="examens" table="alumno_has_examen" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="alumno_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.Examen">
+                <column name="examen_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

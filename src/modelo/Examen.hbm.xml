@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2015 4:27:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Examen" table="examen" schema="public" optimistic-lock="version">
+        <id name="idexamen" type="int">
+            <column name="idexamen" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="materia" class="modelo.Materia" fetch="select">
+            <column name="mat_id" not-null="true" />
+        </many-to-one>
+        <property name="parcial" type="string">
+            <column name="parcial" length="45" not-null="true" />
+        </property>
+        <set name="alumnos" table="alumno_has_examen" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="examen_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="modelo.Alumno">
+                <column name="alumno_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="preguntas" table="pregunta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="exa_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Pregunta" />
+        </set>
+        <set name="preguntas_1" table="pregunta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="exa_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Pregunta" />
+        </set>
+    </class>
+</hibernate-mapping>

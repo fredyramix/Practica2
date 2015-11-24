@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2015 4:27:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Centrosdetrabajo" table="centrosdetrabajo" schema="public" optimistic-lock="version">
+        <id name="idcdt" type="int">
+            <column name="idcdt"/>
+            <generator class="sequence">
+                <param name="sequence">autocentros</param>
+            </generator>
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <set name="escuelas" table="escuela" inverse="true" lazy="true" fetch="select">
+            <key>
+            <column name="cdt_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Escuela" />
+        </set>
+        <set name="escuelas_1" table="escuela" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cdt_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Escuela" />
+        </set>
+    </class>
+</hibernate-mapping>

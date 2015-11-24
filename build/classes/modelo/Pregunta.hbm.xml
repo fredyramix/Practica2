@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2015 4:27:40 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Pregunta" table="pregunta" schema="public" optimistic-lock="version">
+        <id name="idpregunta" type="int">
+            <column name="idpregunta" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="examen" class="modelo.Examen" fetch="select">
+            <column name="exa_id" not-null="true" />
+        </many-to-one>
+        <property name="pregunta" type="string">
+            <column name="pregunta" length="45" not-null="true" />
+        </property>
+        <property name="respuestacorrecta" type="string">
+            <column name="respuestacorrecta" length="45" not-null="true" />
+        </property>
+        <set name="respuestas" table="respuesta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pre_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Respuesta" />
+        </set>
+        <set name="respuestas_1" table="respuesta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pre_id" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Respuesta" />
+        </set>
+    </class>
+</hibernate-mapping>

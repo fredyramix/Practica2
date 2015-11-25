@@ -1,14 +1,15 @@
+
 package DAO;
+
 import conf.HibernateUtil;
 import java.util.List;
-import modelo.Centrosdetrabajo;
-import org.hibernate.Query;
+import modelo.Escuela;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class CentroEstudiosDAO 
+public class EscuelaDAO 
 {
-    public boolean insertar(Centrosdetrabajo ce)
+      public boolean insertar(Escuela ce)
     {
        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
        Transaction tx = session.getTransaction(); 
@@ -24,7 +25,7 @@ public class CentroEstudiosDAO
        }
        return true;
     }
-     public boolean actualizar(Centrosdetrabajo c) 
+     public boolean actualizar(Escuela c) 
     {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.getTransaction();
@@ -37,7 +38,7 @@ public class CentroEstudiosDAO
         }
         return true;
     }
-     public boolean eliminar(Centrosdetrabajo c) 
+     public boolean eliminar(Escuela c) 
     {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.getTransaction();
@@ -50,15 +51,15 @@ public class CentroEstudiosDAO
         }
         return true;
     }
-    public  List<Centrosdetrabajo> listaCentros()
+    public  List<Escuela> listaEscuelas()
      {
        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
        Transaction tx = session.getTransaction();
        tx.begin();
-       List<Centrosdetrabajo> lista;
+       List<Escuela> lista;
        try
        {
-       lista = (List<Centrosdetrabajo>)session.createQuery("FROM Centrosdetrabajo").list();
+       lista = (List<Escuela>)session.createQuery("FROM Escuela ORDER BY nombre ASC").list();
        tx.commit();
        }catch(Exception e)
        {
@@ -66,19 +67,18 @@ public class CentroEstudiosDAO
        }
        return lista;
     }
-     public Centrosdetrabajo buscar(int clave) 
+     public Escuela buscar(int clave) 
      {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.getTransaction();
-        Centrosdetrabajo ct;
+        Escuela ct;
         try {
             tx.begin();
-            ct = (Centrosdetrabajo) session.createQuery("FROM Centrosdetrabajo WHERE idcdt = " + clave).uniqueResult();
+            ct = (Escuela) session.createQuery("FROM Escuela WHERE idescuela = " + clave).uniqueResult();
             tx.commit();
         } catch (Exception e) {
             return null;
         }
         return ct;
     }
-
 }

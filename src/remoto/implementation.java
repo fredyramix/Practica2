@@ -6,14 +6,17 @@
 package remoto;
 
 import DAO.CentroEstudiosDAO;
+import DAO.EscuelaDAO;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import modelo.Centrosdetrabajo;
+import modelo.Escuela;
 
 public class implementation extends UnicastRemoteObject implements interfaces
 {
     CentroEstudiosDAO centro_dao = new CentroEstudiosDAO();
+    EscuelaDAO escuela_dao = new EscuelaDAO();
     public implementation()throws RemoteException
 {
     super();
@@ -41,5 +44,31 @@ public class implementation extends UnicastRemoteObject implements interfaces
     public List<Centrosdetrabajo> listaCentros() throws RemoteException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public boolean insertarEscuela(Escuela e) throws RemoteException {
+        return escuela_dao.insertar(e);
+    }
+
+    @Override
+    public Escuela buscaEscuela(int id) throws RemoteException {
+        return escuela_dao.buscar(id);
+    }
+
+    @Override
+    public boolean actualizarEscuela(Escuela e) throws RemoteException {
+        return escuela_dao.actualizar(e);
+       }
+
+    @Override
+    public boolean eliminarEscuela(Escuela ce) throws RemoteException 
+    {
+        return escuela_dao.eliminar(ce);
+    }
+
+    @Override
+    public List<Escuela> listaEscuelas() throws RemoteException {
+        return escuela_dao.listaEscuelas();
+         }
     
 }

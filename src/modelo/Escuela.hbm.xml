@@ -6,7 +6,9 @@
     <class name="modelo.Escuela" table="escuela" schema="public" optimistic-lock="version">
         <id name="idescuela" type="int">
             <column name="idescuela" />
-            <generator class="assigned" />
+            <generator class="sequence">
+                <param name="sequence">autocescuelas</param>
+            </generator>
         </id>
         <many-to-one name="centrosdetrabajo" class="modelo.Centrosdetrabajo" fetch="select">
             <column name="cdt_id" not-null="true" />

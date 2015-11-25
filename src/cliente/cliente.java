@@ -7,6 +7,7 @@ package cliente;
 
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author freddy
@@ -14,10 +15,12 @@ import javax.swing.JOptionPane;
 public class cliente extends javax.swing.JFrame {
 
     private Centros formulario_centros;
+    private Escuelas formulario_escuelas;
     public cliente() 
     {
         initComponents();
         this.formulario_centros= new Centros();
+        this.formulario_escuelas = new Escuelas();
     }
 
     /**
@@ -47,6 +50,7 @@ public class cliente extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,15 +58,15 @@ public class cliente extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGap(0, 660, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGap(0, 520, Short.MAX_VALUE)
         );
 
         desktopPane.add(jDesktopPane1);
-        jDesktopPane1.setBounds(0, 0, 550, 330);
+        jDesktopPane1.setBounds(0, 0, 660, 520);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -135,6 +139,14 @@ public class cliente extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setText("Escuela");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         menuBar.add(jMenu1);
 
         setJMenuBar(menuBar);
@@ -143,11 +155,11 @@ public class cliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
         );
 
         pack();
@@ -161,12 +173,29 @@ public class cliente extends javax.swing.JFrame {
         this.crearFormCentros();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        this.crearEscuelas();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     private void crearFormCentros()
     {
         if(!this.formulario_centros.isShowing())
         {
             this.jDesktopPane1.add(this.formulario_centros);
             this.formulario_centros.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    }
+    private void crearEscuelas()
+    {
+        if(!this.formulario_escuelas.isShowing())
+        {
+            this.jDesktopPane1.add(this.formulario_escuelas);
+            this.formulario_escuelas.setVisible(true);
         }else
         {
            JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
@@ -222,6 +251,7 @@ public class cliente extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;

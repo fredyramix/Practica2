@@ -3,6 +3,7 @@ package Main;
 
 import modelo.Centrosdetrabajo;
 import DAO.CentroEstudiosDAO;
+import java.util.List;
 
 public class main 
 {
@@ -37,7 +38,7 @@ public class main
         }*/
         
         
-        /*Codigo para Actualizar Eliminar Centro de Estudios*/
+        /*Codigo para Actualizar Eliminar Centro de Estudios
         c.setIdcdt(1);
         c.setNombre("IPN");
         if(dao.eliminar(c))
@@ -47,9 +48,16 @@ public class main
         else
         {
             System.out.println("Ocurrio algun problema");
-        }
-        
-        
+        }*/
+        /*List lista = dao.listaCentros();
+        for(int i =0;i<lista.size();i++)
+        {
+            Centrosdetrabajo ct = (Centrosdetrabajo) lista.get(i);
+            System.out.println("ID: "+ct.getIdcdt()+" Nombre: "+ct.getNombre());
+           
+        }*/
+        c=dao.buscar(2);
+        System.out.println("ID: "+c.getIdcdt()+" Nombre: "+c.getNombre());
      System.exit(1);
     }
     

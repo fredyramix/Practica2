@@ -1,3 +1,53 @@
+create database practica2;
+\c practica2;
+
+create sequence autocentros
+    start 1
+    increment 1
+    NO MAXVALUE
+    CACHE 1;
+
+create sequence autocescuelas
+    start 1
+    increment 1
+    NO MAXVALUE
+    CACHE 1;
+create sequence autocarrera
+    start 1
+    increment 1
+    NO MAXVALUE
+    CACHE 1;
+
+create sequence automateria
+    start 1
+    increment 1
+    NO MAXVALUE
+    CACHE 1;
+
+create sequence autoexamen
+    start 1
+    increment 1
+    NO MAXVALUE
+    CACHE 1;
+
+create sequence autopregunta
+    start 1
+    increment 1
+    NO MAXVALUE
+    CACHE 1;
+
+create sequence autorespuesta
+    start 1
+    increment 1
+    NO MAXVALUE
+    CACHE 1;
+create sequence autoalumno
+    start 1
+    increment 1
+    NO MAXVALUE
+    CACHE 1;
+
+
 create table CentrosDeTrabajo(
 			 idCDT serial primary key not null,
 			 nombre varchar(45) not null

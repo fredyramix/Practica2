@@ -3,19 +3,25 @@ package Main;
 
 import modelo.Centrosdetrabajo;
 import DAO.CentroEstudiosDAO;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.List;
+import remoto.interfaces;
 
 public class main 
 {
-    public static void main(String args[])
+    public static void main(String args[]) throws NotBoundException, MalformedURLException, RemoteException
     {
+        interfaces op;
+        op = (interfaces) Naming.lookup("rmi://localhost/persistencia");
         Centrosdetrabajo c = new Centrosdetrabajo();
         c.setNombre("Uvm");
         
-        CentroEstudiosDAO  dao = new CentroEstudiosDAO();
-        /*Codigo para insertar Centro de Estudios
+        /*Codigo para insertar Centro de Estudios*/
         
-        if(dao.insertar(c))
+        if(op.insertarCentroDeTrabajo(c))
         {
             System.out.println("Agregado: "+c.getNombre());
         }
@@ -23,7 +29,7 @@ public class main
         {
             System.out.println("Ocurrio algun problemads");
         }
-        */
+        
         
         /*Codigo para Actualizar Centro de Estudios
         c.setIdcdt(1);

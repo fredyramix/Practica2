@@ -16,11 +16,29 @@ public class cliente extends javax.swing.JFrame {
 
     private Centros formulario_centros;
     private Escuelas formulario_escuelas;
+    private MateriasForm formulario_materias;
+    private ExamenForm formulario_examen;
+    private PreguntasForm formulario_pregunta;
+    private Carreras formulario_carreras;
+    private RespuestasForm formulario_respuestas;
+    private Alumnos formulario_alumnos;
+    private Login formulario_login;
+    private SeleccionExamen seleccion;
+
     public cliente() 
     {
         initComponents();
         this.formulario_centros= new Centros();
         this.formulario_escuelas = new Escuelas();
+        this.formulario_materias = new MateriasForm();
+        this.formulario_carreras = new Carreras();
+        this.formulario_examen= new ExamenForm();
+        this.formulario_pregunta= new PreguntasForm();
+        this.formulario_respuestas = new RespuestasForm();
+        this.formulario_alumnos= new Alumnos();
+        this.formulario_login = new Login();
+        this.seleccion = new SeleccionExamen();
+        
     }
 
     /**
@@ -32,25 +50,33 @@ public class cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu2 = new javax.swing.JMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+
+        jMenu2.setText("jMenu2");
+
+        jMenuItem9.setText("jMenuItem9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,35 +94,7 @@ public class cliente extends javax.swing.JFrame {
         desktopPane.add(jDesktopPane1);
         jDesktopPane1.setBounds(0, 0, 660, 520);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
-
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        fileMenu.add(openMenuItem);
-
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
-        fileMenu.add(saveMenuItem);
-
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        fileMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(exitMenuItem);
-
-        menuBar.add(fileMenu);
-
         editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
 
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Cut");
@@ -116,19 +114,6 @@ public class cliente extends javax.swing.JFrame {
 
         menuBar.add(editMenu);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
         jMenu1.setText("CRUD");
 
         jMenuItem1.setText("Centros de Trabajo");
@@ -139,6 +124,54 @@ public class cliente extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem3.setText("Materia");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem6.setText("Respuesta");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
+        jMenuItem8.setText("Alumnos");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem8);
+
+        jMenuItem7.setText("Carrera");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem7);
+
+        jMenuItem5.setText("Pregunta");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem4.setText("Examen");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
         jMenuItem2.setText("Escuela");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +181,21 @@ public class cliente extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         menuBar.add(jMenu1);
+
+        jMenu3.setText("Examenes");
+
+        jMenuItem11.setText("Ver Calificaciones");
+        jMenu3.add(jMenuItem11);
+
+        jMenuItem10.setText("Realizar Examen");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem10);
+
+        menuBar.add(jMenu3);
 
         setJMenuBar(menuBar);
 
@@ -165,25 +213,134 @@ public class cliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         this.crearFormCentros();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+
         this.crearEscuelas();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void crearFormCentros()
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        this.crearFormPreguntas();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        this.crearMaterias();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        this.crearRespuestas();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        this.crearFormExamenes();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        this.crearFormCarreras();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        this.AlumnosForm();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        this.LoginForm();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+     private void crearFormPreguntas()
+    {
+        if(!this.formulario_pregunta.isShowing())
+        {
+            this.jDesktopPane1.add(this.formulario_pregunta);
+            this.formulario_pregunta.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    } 
+     
+     public void SeleccionExamenes()
+    {
+        if(!this.seleccion.isShowing())
+        {
+            this.jDesktopPane1.add(this.seleccion);
+            this.seleccion.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    }
+    public void crearFormExamenes()
+    {
+        if(!this.formulario_examen.isShowing())
+        {
+            this.jDesktopPane1.add(this.formulario_examen);
+            this.formulario_examen.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    }
+    private void LoginForm()
+    {
+        if(!this.formulario_login.isShowing())
+        {
+            this.jDesktopPane1.add(this.formulario_login);
+            this.formulario_login.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    }
+    private void AlumnosForm()
+    {
+        if(!this.formulario_alumnos.isShowing())
+        {
+            this.jDesktopPane1.add(this.formulario_alumnos);
+            this.formulario_alumnos.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    }
+    private void crearFormCarreras()
+    {
+        if(!this.formulario_carreras.isShowing())
+        {
+            this.jDesktopPane1.add(this.formulario_carreras);
+            this.formulario_carreras.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    }
+     private void crearFormCentros()
     {
         if(!this.formulario_centros.isShowing())
         {
             this.jDesktopPane1.add(this.formulario_centros);
             this.formulario_centros.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    }
+     private void crearRespuestas()
+    {
+        if(!this.formulario_respuestas.isShowing())
+        {
+            this.jDesktopPane1.add(this.formulario_respuestas);
+            this.formulario_respuestas.setVisible(true);
         }else
         {
            JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
@@ -196,6 +353,18 @@ public class cliente extends javax.swing.JFrame {
         {
             this.jDesktopPane1.add(this.formulario_escuelas);
             this.formulario_escuelas.setVisible(true);
+        }else
+        {
+           JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
+        }
+        
+    }
+    private void crearMaterias()
+    {
+        if(!this.formulario_materias.isShowing())
+        {
+            this.jDesktopPane1.add(this.formulario_materias);
+            this.formulario_materias.setVisible(true);
         }else
         {
            JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "La ventana ya se encuentra abierta");
@@ -238,25 +407,29 @@ public class cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

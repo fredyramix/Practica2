@@ -6,7 +6,9 @@
     <class name="modelo.Respuesta" table="respuesta" schema="public" optimistic-lock="version">
         <id name="idrespuesta" type="int">
             <column name="idrespuesta" />
-            <generator class="assigned" />
+            <generator class="sequence">
+                <param name="sequence">autorespuesta</param>
+            </generator>
         </id>
         <many-to-one name="pregunta" class="modelo.Pregunta" fetch="select">
             <column name="pre_id" not-null="true" />
